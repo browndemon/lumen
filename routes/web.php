@@ -17,7 +17,7 @@ $router->get('/', function () use ($router) {
 
 //ADICIONANDO ROTA PARA CARS
 $router->group(['prefix' => 'api'], function () use ($router) {
-  $router->get('car',  ['uses' => 'CarController@showAllCars']);
+  $router->get('car',  ['uses' => 'CarController@index']);
 
   $router->get('car/{id}', ['uses' => 'CarController@showOneCar']);
 
