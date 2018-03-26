@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Car;
 use App\Http\Controllers\Controller;
-use Iluminate\Http\Request;
+use Illuminate\Http\Request;
 
 class CarController extends Controller{
     
