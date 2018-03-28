@@ -14,10 +14,15 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+//ADICIONANDO ROTA PARA CARS
+$router->group(['prefix' => 'api'], function () use ($router) {
+  $router->get('car',  ['uses' => 'CarController@index']);
 
-$router->group(['prefix' => 'api'], function() use ($router){
-    $router->post('car', ['uses' => 'CarController@createCar'] );
-    $router->put('car/{id}', ['uses' => 'CarController@updateCar'] );
-    $router->delete('car/{id}', ['uses' => 'CarController@deleteCar']);
-    $router->get('car', ['uses' => 'CarController@index'] );
+  $router->get('car/{id}', ['uses' => 'CarController@showOneCar']);
+
+  $router->post('car', ['uses' => 'CarController@createCar']);
+
+  $router->delete('car/{id}', ['uses' => 'CarController@delete']);
+
+  $router->put('car/{id}', ['uses' => 'CarController@update']);
 });
