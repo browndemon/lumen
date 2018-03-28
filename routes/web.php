@@ -22,7 +22,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
   $router->post('car', ['uses' => 'CarController@createCar']);
 
-  $router->delete('car/{id}', ['uses' => 'CarController@delete']);
+  $router->delete('car/{id}', ['uses' => 'CarController@deleteCar']);
 
   $router->put('car/{id}', ['uses' => 'CarController@update']);
 });
