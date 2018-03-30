@@ -16,13 +16,18 @@ $router->get('/', function () use ($router) {
 });
 //ADICIONANDO ROTA PARA CARS
 $router->group(['prefix' => 'api'], function () use ($router) {
-  $router->get('car',  ['uses' => 'CarController@index']);
-
-  $router->get('car/{id}', ['uses' => 'CarController@GetOneCar']);
-
+ $router->get('car/{prammeters}',  ['uses' => 'CarController@Gc']);
+ 
   $router->post('car', ['uses' => 'CarController@createCar']);
 
   $router->delete('car/{id}', ['uses' => 'CarController@deleteCar']);
 
-  $router->put('car/{id}', ['uses' => 'CarController@update']);
+  $router->put('car/{id}', ['uses' => 'CarController@update']);  
 });
+
+ /*// Novo prefixo de rota
+ $router->get('/', function() use ($router){
+
+	$router->get('car/{make}', ['uses' => 'CarController@Make']);
+
+});*/

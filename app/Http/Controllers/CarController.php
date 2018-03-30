@@ -26,16 +26,24 @@ class CarController extends Controller{
         
         return response()->json('Removido com Sucesso');
     }
+    public function Gc($parammeters, Request $request){
+        switch ($parammeters) {
+            case 'GetOneCar':
+                $id = Request::get('id');
+            return response()->json(Car::find($id));
+        break;
     
-    public function index(){
+        case 'Make':
+                $carm = Car::where('make', $make);
+            return responde()->json($carm);
         
-        $cars = Car::all();
-        
-        return response()->json($cars);
-    }
-    
-    public function GetOneCar($id){
-        return response()->json(Car::find($id));
+        case 'index':
+                $cars = Car::all();
+            return response()->json($cars);
+        break;
     }
 
+    }
+    
 }
+
